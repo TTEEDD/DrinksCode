@@ -37,13 +37,52 @@ def startGUI():
     createButton(homeWindow, "Whiskey Sour", homeWindow.destroy, "wsour.png", spacing_X, 2*spacing_y + btnSize_y, btnSize_x, btnSize_y)
     createButton(homeWindow, "Daiquiri", homeWindow.destroy, "dai.png", 2*spacing_X + btnSize_y, 2*spacing_y + btnSize_y, btnSize_x, btnSize_y)
     createButton(homeWindow, "Margarita", homeWindow.destroy, "mar.png", 3*spacing_X + 2*btnSize_y, 2*spacing_y + btnSize_y, btnSize_x, btnSize_y)
-    createButton(homeWindow, "Manhattan", homeWindow.destroy, "man.png", 4*spacing_X + 3*btnSize_y, 2*spacing_y + btnSize_y, btnSize_x, btnSize_y)
+    createButton(homeWindow, "Manhattan", secondMenu, "man.png", 4*spacing_X + 3*btnSize_y, 2*spacing_y + btnSize_y, btnSize_x, btnSize_y)
 
 
     homeWindow.configure(background='#282828')
     homeWindow.attributes('-fullscreen', True)
     homeWindow.mainloop()
 
+
+def secondMenu():
+    # creating a GUI window
+    secondWindow = tk.Toplevel()
+
+    # Getting the screen width and height
+    screen_width = secondWindow.winfo_screenwidth()
+    screen_height = secondWindow.winfo_screenheight()
+
+    # Getting the center of the screen
+    x_axis = (screen_width/2)
+    y_axis = (screen_height/2)
+
+    # Button Sizes
+    btnSize_x = screen_width * .15
+    btnSize_y = screen_height * .30
+
+    # Calculating the sizes of button and distance
+    amtRows = 2
+    amtBtns = 4
+
+    spacing_X = (screen_width/(amtBtns+1))*0.50
+    spacing_y = (screen_width/(amtRows+1))*0.18
+
+    # Buttons
+    createButton(secondWindow, "Pump 1", secondWindow.destroy, "oldfash.png", spacing_X, spacing_y*0.5, btnSize_x, btnSize_y)
+    createButton(secondWindow, "Pump 2", secondWindow.destroy, "mosmule.png", 2*spacing_X + btnSize_y, spacing_y*0.5, btnSize_x, btnSize_y)
+    createButton(secondWindow, "Pump 3", secondWindow.destroy, "neg.png", 3*spacing_X + 2*btnSize_y, spacing_y*0.5, btnSize_x, btnSize_y)
+    createButton(secondWindow, "Pump 4", secondWindow.destroy, "moj.png", 4*spacing_X + 3*btnSize_y, spacing_y*0.5, btnSize_x, btnSize_y)
+
+    createButton(secondWindow, "Pump 5", secondWindow.destroy, "wsour.png", spacing_X, 2*spacing_y + btnSize_y, btnSize_x, btnSize_y)
+    createButton(secondWindow, "Pump 7", secondWindow.destroy, "dai.png", 2*spacing_X + btnSize_y, 2*spacing_y + btnSize_y, btnSize_x, btnSize_y)
+    createButton(secondWindow, "Pump 8", secondWindow.destroy, "mar.png", 3*spacing_X + 2*btnSize_y, 2*spacing_y + btnSize_y, btnSize_x, btnSize_y)
+    createButton(secondWindow, "Pump 9", secondWindow.destroy, "man.png", 4*spacing_X + 3*btnSize_y, 2*spacing_y + btnSize_y, btnSize_x, btnSize_y)
+
+
+    secondWindow.configure(background='#282828')
+    secondWindow.attributes('-fullscreen', True)
+    secondWindow.mainloop()
 
 def createButton(window: tk.Tk, btnTitle: str, command, pictureFileName: str, posX: int, posY: int, btnSizeX: int, btnSizeY: int):
     btnTitle = btnTitle.upper()
@@ -76,7 +115,6 @@ def createButton(window: tk.Tk, btnTitle: str, command, pictureFileName: str, po
     )
 
     btn.place(x=posX, y=posY)
-
 
 def getImagePath(name):
     return path.join(current_dir, "Images", name)
